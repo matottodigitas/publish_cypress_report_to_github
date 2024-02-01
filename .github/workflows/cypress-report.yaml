@@ -12,12 +12,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+<<<<<<< HEAD
       - name: Cypress install
         uses: cypress-io/github-action@v6
         with:
           runTests: false
 
       - name: Cypress run tests
+=======
+      - name: Cypress install and run tests
+        uses: cypress-io/github-action@v6
+        with:
+          runTests: false
+>>>>>>> origin/main
         run: npm run test:chrome
         continue-on-error: true
 
