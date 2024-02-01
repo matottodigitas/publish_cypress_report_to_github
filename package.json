@@ -2,11 +2,10 @@
   "name": "publish_cypress_report_to_github",
   "version": "1.0.0",
   "description": "cypress_test",
-  "main": "index.js",
   "scripts": {
     "test:chrome": "npx cypress run --browser chrome",
-    "report:merge": "npm mochawesome-merge cypress/result/json/*.json > index.json",
-    "report:generate": "npm marge index.json --reportDir public --assetDir public/assets --reportPageTitle index.html"
+    "report:merge": "mochawesome-merge cypress/result/json/*.json > index.json",
+    "report:generate": "marge index.json --reportDir public --assetDir public/assets --reportPageTitle index.html"
   },
   "author": "",
   "license": "ISC",
