@@ -4,9 +4,9 @@
   "description": "cypress_test",
   "main": "index.js",
   "scripts": {
-    "test:chrome": "cypress run --browser chrome",
-    "report:merge": "mochawesome-merge cypress/result/json/*.json > index.json",
-    "report:generate": "marge index.json --reportDir public --assetDir public/assets --reportPageTitle index.html"
+    "test:chrome": "npx cypress run --browser chrome",
+    "report:merge": "npm mochawesome-merge cypress/result/json/*.json > index.json",
+    "report:generate": "npm marge index.json --reportDir public --assetDir public/assets --reportPageTitle index.html"
   },
   "author": "",
   "license": "ISC",
