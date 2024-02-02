@@ -40,6 +40,6 @@ jobs:
         with:
           name: Test Result
           path: |
-            cypress/result/testResult.txt
+            ./testResult.txt
             cypress/screenshots/
 
