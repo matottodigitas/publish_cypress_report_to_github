@@ -18,9 +18,7 @@ jobs:
           runTests: false
 
       - name: Cypress run tests
-        run: |
-          touch cypress/result/testResult.txt
-          npm run test:chrome
+        run: npm run test:chrome
         continue-on-error: true
 
       - name: Merge test results into one
