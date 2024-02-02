@@ -34,3 +34,12 @@ jobs:
           publish_dir: ./public
           user_name: 'matottodigitas'
           user_email: 'matottodigitas@users.noreply.github.com'
+
+      - name: Upload report to Github
+        uses: actions/upload-artifact@4
+        with:
+          name: Test Result
+          path: |
+            cypress/result/testResult.txt
+            cypress/screenshots/
+

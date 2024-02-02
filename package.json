@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "cypress_test",
   "scripts": {
-    "test:chrome": "npx cypress run --browser chrome",
+    "test:chrome": "npx cypress run --browser chrome > cypress/result/testResult.txt",
     "report:merge": "mochawesome-merge cypress/result/json/*.json > index.json",
     "report:generate": "marge index.json --reportDir public --assetDir public/assets --reportPageTitle index.html"
   },
