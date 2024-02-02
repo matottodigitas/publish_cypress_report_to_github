@@ -36,7 +36,7 @@ jobs:
           user_email: 'matottodigitas@users.noreply.github.com'
 
       - name: Upload report to Github
-        uses: actions/upload-artifact@4
+        uses: actions/upload-artifact@3
         with:
           name: Test Result
           path: |
