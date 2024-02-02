@@ -40,6 +40,6 @@ jobs:
         with:
           name: Test Result
           path: |
-            ./public/index.html
+            ./public
             cypress/screenshots/
 
