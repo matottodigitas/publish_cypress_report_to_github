@@ -4,6 +4,14 @@ on:
   push:
     branches:
       - main
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   cypress-generate-report:
@@ -27,13 +35,13 @@ jobs:
       - name: Generate HTML report
         run: npm run report:generate
 
-      - name: Deploy report page
-        uses: peaceiris/actions-gh-pages@v3.9.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          user_name: 'matottodigitas'
-          user_email: 'matottodigitas@users.noreply.github.com'
+#      - name: Deploy report page
+#        uses: peaceiris/actions-gh-pages@v3.9.3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          publish_dir: ./public
+#          user_name: 'matottodigitas'
+#          user_email: 'matottodigitas@users.noreply.github.com'
 
       - name: Upload report to Github
         uses: actions/upload-artifact@v4
@@ -42,4 +50,8 @@ jobs:
           path: |
             ./public
             cypress/screenshots/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
