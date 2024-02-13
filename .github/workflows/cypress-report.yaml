@@ -36,17 +36,13 @@ jobs:
       - name: Generate HTML report
         run: npm run report:generate
 
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v1
-
-
-      #      - name: Deploy report page
-      #        uses: peaceiris/actions-gh-pages@v3.9.3
-      #        with:
-      #          github_token: ${{ secrets.GITHUB_TOKEN }}
-      #          publish_dir: ./public
-      #          user_name: 'matottodigitas'
-      #          user_email: 'matottodigitas@users.noreply.github.com'
+      - name: Deploy report page
+        uses: peaceiris/actions-gh-pages@v3.9.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          user_name: 'matottodigitas'
+          user_email: 'matottodigitas@users.noreply.github.com'
 
       - name: Upload report to Github
         uses: actions/upload-artifact@v4
@@ -55,19 +51,3 @@ jobs:
           path: |
             ./public
             cypress/screenshots/
-
-  deploy:
-    needs: cypress-generate-report
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-        - name: Deploy to GitHub Pages
-          id: deployment
-          uses: actions/deploy-pages@v4
-          with:
-            artifact_name: Test Result
