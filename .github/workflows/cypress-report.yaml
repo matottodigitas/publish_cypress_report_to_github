@@ -20,6 +20,7 @@ jobs:
           runTests: false
 
       - name: Cypress run tests
+        if: ${{ always() }}
         run: npm run test:chrome
 
       - name: Merge test results into one
