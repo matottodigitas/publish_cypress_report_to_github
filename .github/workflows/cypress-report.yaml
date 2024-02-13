@@ -16,6 +16,10 @@ concurrency:
 jobs:
   cypress-generate-report:
     runs-on: ubuntu-22.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -46,6 +50,7 @@ jobs:
       - name: Upload report to Github
         uses: actions/upload-artifact@v4
         with:
+          name: Test Result
           path: |
             ./public
             cypress/screenshots/
