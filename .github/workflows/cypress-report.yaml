@@ -21,7 +21,6 @@ jobs:
 
       - name: Cypress run tests
         run: npm run test:chrome
-        continue-on-error: true
 
       - name: Merge test results into one
         run: npm run report:merge
