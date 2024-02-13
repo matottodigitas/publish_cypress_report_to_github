@@ -27,9 +27,11 @@ jobs:
         run: npm run report:merge
 
       - name: Generate HTML report
+        if: ${{ always() }}
         run: npm run report:generate
 
       - name: Deploy report page
+        if: ${{ always() }}
         uses: peaceiris/actions-gh-pages@v3.9.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -38,6 +40,7 @@ jobs:
           user_email: 'matottodigitas@users.noreply.github.com'
 
       - name: Upload report to Github
+        if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: Test Result
